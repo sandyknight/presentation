@@ -1,0 +1,137 @@
+---
+title: "Estimating additional mortality related to substance use and life-years-lost"
+format: revealjs
+execute:
+  echo: false
+  message: false
+  warning: false
+project:
+  type: website
+output-dir: docs
+---
+
+
+## Project outline
+
+[![](https://mermaid.ink/img/pako:eNqVVm1r2zAQ_iuHYbBBM-g-hrWso3uDvsDaL1s9wsU62yKyZCS5aeja376T5JckbTdmCrVOd6d7nnt0zn1WGEHZPHv16jcVtZlDicpRrnNdKrMuarR-RmoFZ99zDfxo4Rt38zrPLk6vz6_y7M2vZG-M9aik34S982EBAj1OTq5bVhbbGox2N3l2ecEJ-q3wCCtaNp8S-tqBJYWeBHjDG10FrZHOaKkrjvlw72psaQ5Ls55ZKvzDlAVV4UKaE1WY2qiZa6mQpSxAxLz_iFayJI9LRaHAC_TSaFTRCsn8QvyQIf0nLaaUIzUwmx1HkC_txdKf3XzLu1NpyUVJvcKKAmPM8rDcrs_5bXgj-8GTxCL0hoPP4qrv1HY3WiVC7v_hvrnzdzfb_ZcavGXeG9IeUAvA0pMFIV2Q1m61e_lGDicajo6OR5iTGp-a-0Xim2E8tYZCcz0ygtzkjZOh5yf9a-RCyFAQawCuP6Ykg-chu34TjEqWG0AhZK8U8US8fIjzqAuCztHI8JDnHef55LxsovuG0DowZRKcMs7D6x9nZ2_-ni8yNd0tWy1uUXVBGJe2Qi1dlDFE4zOwTC3FLpzQJyEsOQc1ofJ1aFiLlkFSIibEhNKvcUWAKRf_-ZpgKauKuPDW0i0nDIIFK92KJ0vhDcMrjQWp1JA6nMa-TEBnKfE3HnEIj4-PEA_bh9kaNcL8Ym7J6qixl0Cy-2Gst1hxPaFOZwoZG8aCbKRG7SPzqaqYgWMCxq-oblNIhW1QdHLZpCbRHc-X0I8NLMmviRILVhZ1YCGiM4a59EPOBCok7zHtXM5U1gjtKlU5wYpX84ksw1PSmuwiCZAjP4flNPQmP754zcKS6GKKCNA2MBp2fGXTWiZXLALWoJF-PXDwfmmP92iI8c9XFYHvHv9SWdF15_StqSB4ojuZPiKn_TuUFhuCtbEr17OuZLFpcLU3tqahmOtppKb5O1zKsDPOyJ2tw1wPr9E-3rY9-yjP2PL0mubRUDt_Ksbg3Z0tgHFjWxK5zg6yhhWLUvBn-z6wkmesuIblMedXTZ23qPIs1w_sip03VxtdZHNvOzrIrOmqOpvHr_xB1rUMkE4lsvaawaVF_dOYZnQiHm7GnqffCfHnwsMf8Xvd0A?type=png)](https://mermaid.live/edit#pako:eNqVVm1r2zAQ_iuHYbBBM-g-hrWso3uDvsDaL1s9wsU62yKyZCS5aeja376T5JckbTdmCrVOd6d7nnt0zn1WGEHZPHv16jcVtZlDicpRrnNdKrMuarR-RmoFZ99zDfxo4Rt38zrPLk6vz6_y7M2vZG-M9aik34S982EBAj1OTq5bVhbbGox2N3l2ecEJ-q3wCCtaNp8S-tqBJYWeBHjDG10FrZHOaKkrjvlw72psaQ5Ls55ZKvzDlAVV4UKaE1WY2qiZa6mQpSxAxLz_iFayJI9LRaHAC_TSaFTRCsn8QvyQIf0nLaaUIzUwmx1HkC_txdKf3XzLu1NpyUVJvcKKAmPM8rDcrs_5bXgj-8GTxCL0hoPP4qrv1HY3WiVC7v_hvrnzdzfb_ZcavGXeG9IeUAvA0pMFIV2Q1m61e_lGDicajo6OR5iTGp-a-0Xim2E8tYZCcz0ygtzkjZOh5yf9a-RCyFAQawCuP6Ykg-chu34TjEqWG0AhZK8U8US8fIjzqAuCztHI8JDnHef55LxsovuG0DowZRKcMs7D6x9nZ2_-ni8yNd0tWy1uUXVBGJe2Qi1dlDFE4zOwTC3FLpzQJyEsOQc1ofJ1aFiLlkFSIibEhNKvcUWAKRf_-ZpgKauKuPDW0i0nDIIFK92KJ0vhDcMrjQWp1JA6nMa-TEBnKfE3HnEIj4-PEA_bh9kaNcL8Ym7J6qixl0Cy-2Gst1hxPaFOZwoZG8aCbKRG7SPzqaqYgWMCxq-oblNIhW1QdHLZpCbRHc-X0I8NLMmviRILVhZ1YCGiM4a59EPOBCok7zHtXM5U1gjtKlU5wYpX84ksw1PSmuwiCZAjP4flNPQmP754zcKS6GKKCNA2MBp2fGXTWiZXLALWoJF-PXDwfmmP92iI8c9XFYHvHv9SWdF15_StqSB4ojuZPiKn_TuUFhuCtbEr17OuZLFpcLU3tqahmOtppKb5O1zKsDPOyJ2tw1wPr9E-3rY9-yjP2PL0mubRUDt_Ksbg3Z0tgHFjWxK5zg6yhhWLUvBn-z6wkmesuIblMedXTZ23qPIs1w_sip03VxtdZHNvOzrIrOmqOpvHr_xB1rUMkE4lsvaawaVF_dOYZnQiHm7GnqffCfHnwsMf8Xvd0A)
+
+
+## Project outline
+
+[![](https://mermaid.ink/img/pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1NGUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A91i-vg?type=png)](https://mermaid.live/edit#pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1NGUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A91i-vg)
+
+
+```{r}
+block_colours <- afcolours::af_colours("categorical")
+
+```
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}
+::: {.r-hstack align="right"}
+::: {.fragment .fade-in}
+::: {data-id="alc_spec" auto-animate-delay="0" style="background: `r block_colours[1]`; width: 350px; height: 300px; margin: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; padding: 10px; border-radius: 15px;"}
+::: {.incremental}
+- Alcohol-specific deaths (ONS):
+<br>
+ **7,558**
+:::
+:::
+:::
+::: {.fragment .fade-in}
+::: {data-id="other_alc" auto-animate-delay="0.1" style="background: `r block_colours[1]`; width: 350px; height: 300px; margin: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; padding: 10px; border-radius: 15px;"}
+::: {.incremental}
+- Deaths from causes not idenitfied as alcohol-specific;
+- but occurred in alcohol treatment or within a year of discharge (NDTMS):
+<br>
+ **2,038**
+:::
+:::
+:::
+:::
+::: {.r-hstack}
+::: {.fragment .fade-in}
+::: {data-id="ons_misuse" auto-animate-delay="0.2" style="background: `r block_colours[2]`; width: 350px; height: 300px; margin: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; padding: 10px; border-radius: 15px;"}
+::: {.incremental}
+- Drug poisoning deaths related to drug misuse (ONS)
+<br>
+ **2,281**
+:::
+:::
+:::
+::: {.fragment .fade-in}
+::: {data-id="additional_poisoning_misuse" auto-animate-delay="0.3" style="background: `r block_colours[2]`; width: 350px; height: 300px; margin: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; padding: 10px; border-radius: 15px;"}
+::: {.incremental}
+- Drug poisoning deaths not idenitfied as related drug misuse by ONS;
+- but were recorded as having been in drug treatment by NDTMS (linked dataset)
+<br>
+ **1,136**
+:::
+:::
+:::
+::: {.fragment .fade-in}
+::: {data-id="nonpoison_drugs" auto-animate-delay="0.4" style="background: `r block_colours[2]`; width: 350px; height: 300px; margin: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; padding: 10px; border-radius: 15px;"}
+::: {.incremental}
+- Deaths from causes other than drug poisoning;
+- but occured in treatment or within a year of discharge
+<br>
+ **541**
+:::
+:::
+:::
+:::
+
+## {auto-animate=true auto-animate-easing="ease-in-out"}
+::: {style="height: 600px; display: flex"}
+::: {.r-stack style="flex: 1"}
+::: {style="height: 100%; display: flex; flex-direction: column"}
+::: {data-id="alc_spec" style="background: `r block_colours[1]`; width: 200px; flex: 7558; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+7,558
+:::
+::: {data-id="other_alc" style="background: `r block_colours[2]`; width: 200px; flex: 2038; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+2,038
+:::
+::: {data-id="ons_misuse" style="background: `r block_colours[3]`; width: 200px; flex: 2281; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+2,281
+:::
+::: {data-id="additional_poisoning_misuse" style="background: `r block_colours[4]`; width: 200px; flex: 1136; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+1,136
+:::
+::: {data-id="nonpoison_drugs" style="background: `r block_colours[5]`; width: 200px; flex: 541; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+541
+:::
+:::
+:::
+::: {.r-stack style="flex: 1"}
+::: {style="height: 100%; display: flex; flex-direction: column"}
+::: {data-id="alcohol" style="background: `r block_colours[1]`; width: 200px; flex: 9596; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+Alcohol<br> 9,596
+:::
+::: {data-id="drugs" style="background: `r block_colours[2]`; width: 200px; flex: 3958; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+Drugs<br>3,958
+:::
+:::
+:::
+
+::: {.r-stack style="flex: 1"}
+::: {data-id="total" style="background: `r block_colours[1]`; width: 200px; flex: 13554; margin: 0; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; padding: 10px;"}
+ Total<br>13,554
+:::
+:::
+:::
+
+## Project outline
+
+[![](https://mermaid.ink/img/pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1NGUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A91i-vg?type=png)](https://mermaid.live/edit#pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1NGUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A91i-vg)
+
+## Project outline
+
+[![](https://mermaid.ink/img/pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1OyUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A92Kevh?type=png)](https://mermaid.live/edit#pako:eNqVVm1r5DYQ_iuDj4M7yB5kP5WlF3pHei-Q5KDJlzY-lllrbIuVJSPJ2Zg0-e0dSX7Z3SQtNQsrjUajeZ55NPZDVhhB2Sp7-_ZvKmqzghKVo1znulRmV9Ro_YLUFi7-yDXwo4Vv3O27PLs6v7m8zrP3P5O9Mdajkr4Pa5fjBAR6nJ1ct6kstjUY7W7z7McVBxiWwiOsaNl8TuhrB5YUehLgDS90FbRGOqOlrnjPbw-uxpZWsDG7haXCP85RUBUuhPmkClMbtXAtFbKUBYgY9z92K1mSx42ikOAVemk0qmiFZH5l_xgh_ZMWc8iJGlgsziLI19Zi6i8ufuDVObXkoqTeYkWBMWZ5nO7n5_w-vIn94EliHWrDmy_ibKjUfjVaJULs_8N9c-_vb_frLzV4y7w3pD2gFoClJwtCuiCtw2yP4k0czjR8_Hg2wZzV-Nw8TBLfDOO5NSSa64kR5CL3ToaafxqGkQshQ0KsAbj5nIKMnqfs-l0wKln2gELIQSnimXj5EOdRFwSdo4nhMc6S4_zuvGyie09oHZgyCU4Z5-HdnxcX7_89XmRqvlu2Wt-h6oIwftgKtXRRxhCNL8AytRSHcEKdhLDkHNSEytehYC1aBkmJmLAnpH6DWwJMsfjna4KNrCrixFtLdxwwCBasdFvuLIU3DK80FqRSY-hwGvsyAZ2lxN90xCk8PT1BPOwYZmvUBPOruSOro8ZeA8nupzHfYsv5hDydKWQsGAuykRq1j8ynrGIE3hMwfkN1l7ZU2AZFJ5c-FYnuub-EevSwIb8jSixYWdSBhYjOGObSjzETqBB8wHRwOVNaE7TrlOUMK17NZ7IMT0k7suskQN75JUznpjf78cVr1pZEF0NEgLaByXDgK5vWMrliHbAGjQzzkYNfN_bsiIa4_-WsIvDD419LK7oenL7XFQR3dCfTS-R8GENpsSHYGbt1A-tKFn2D26O2NTfFXM8tNfXf8VKGlalHHiyd5nocRvt0247skzxjydMw9aMxd35VTJsPV_YAxoV9SYSsne9Zw1OyUPJtWr1ZLn_5vFyeQGGUsas3ZVlmJ1nD2kYp-AX_EPjLM9Zmw0Ja8VBT5y2qPMv1I7ti5811r4ts5W1HJ5k1XVVnq_g9cJJ1LVNB5xJZpc3o0qL-y5hmciJug8Zepi-K-GHx-A92Kevh)
+
+
+##
+
+![](Rplot.svg)
+
+##
+
+![](Rplot01.svg)
